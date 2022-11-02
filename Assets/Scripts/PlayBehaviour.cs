@@ -10,6 +10,11 @@ public class PlayBehaviour : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void AboutMe()
+    {
+        SceneManager.LoadScene("Scene About Me");
+    }
+
     public void ExitGame()
     {
         Application.Quit();

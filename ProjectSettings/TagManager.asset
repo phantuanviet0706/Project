@@ -8,6 +8,7 @@ TagManager:
   - MoveUp
   - MoveRight
   - Enemy
+  - Fruits
   layers:
   - Default
   - TransparentFX

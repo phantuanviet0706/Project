@@ -23,8 +23,6 @@ public class PlayerLife : MonoBehaviour
         {
             Die();
         }
-        //Vector3 position = transform.position;
-        //if (position.y < -1f) Die();
     }
 
     private void Die()

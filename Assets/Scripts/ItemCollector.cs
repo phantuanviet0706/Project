@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class ItemCollector : MonoBehaviour
 {
     private int points = 0;
 
-    [SerializeField] private Text pointsText;
+    [SerializeField] public TextMeshProUGUI pointsText;
 
     [SerializeField] private AudioSource collectionSoundEffect;
 
@@ -19,7 +20,7 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             points++;
             Debug.Log("Chery: "+points);
-            //pointsText.text = "Fruits Collected: " + points;
+            pointsText.SetText("Fruits Collected: " + points);
         }
     }
 }

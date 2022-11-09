@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask jumpableGround;
 
     private float dirX = 0f;
-    [SerializeField] private float moveSpeed = 14f;
-    [SerializeField] private float jumpForce = 12f;
+    [SerializeField] private float moveSpeed = 18f;
+    [SerializeField] private float jumpForce = 25f;
 
     private enum MovementState { idle, running, jumping, falling }
 
@@ -38,6 +38,15 @@ public class PlayerMovement : MonoBehaviour
         {
             //jumpSoundEffect.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (5) * Time.deltaTime;
+        }
+        else if (rb.velocity.y > 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * Time.deltaTime * (3);
         }
 
         UpdateAnimationState();

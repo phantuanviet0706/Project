@@ -19,8 +19,7 @@ public class ItemCollector : MonoBehaviour
             //collectionSoundEffect.Play();
             Destroy(collision.gameObject);
             points++;
-            Debug.Log("Chery: "+points);
-            pointsText.SetText("Fruits Collected: " + points);
+            pointsText.SetText("Points: " + points);
         }
     }
 }

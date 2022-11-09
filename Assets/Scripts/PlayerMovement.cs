@@ -58,33 +58,28 @@ public class PlayerMovement : MonoBehaviour
         
         if (dirX > 0f)
         {
-            anim.SetBool("hit", false);
             state = MovementState.running;
             sprite.flipX = false;
         }
         else if (dirX < 0f)
         {
-            anim.SetBool("hit", false);
             state = MovementState.running;
             sprite.flipX = true;
         }
         else
         {
-            anim.SetBool("hit", false);
             state = MovementState.idle;
         }
 
         if (rb.velocity.y > .1f)
         {
-            anim.SetBool("hit", false);
             state = MovementState.jumping;
         }
         else if (rb.velocity.y < -.1f)
         {
-            anim.SetBool("hit", false);
             state = MovementState.falling;
         }
-
+        anim.SetBool("hit", false);
         anim.SetInteger("state", (int)state);
     }
 

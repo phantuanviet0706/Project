@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float dirX = 0f;
     [SerializeField] private float moveSpeed = 18f;
-    [SerializeField] private float jumpForce = 25f;
+    [SerializeField] private float jumpForce = 26f;
 
     private enum MovementState { idle, running, jumping, falling }
 
@@ -55,28 +55,33 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateAnimationState()
     {
         MovementState state;
-
+        
         if (dirX > 0f)
         {
+            anim.SetBool("hit", false);
             state = MovementState.running;
             sprite.flipX = false;
         }
         else if (dirX < 0f)
         {
+            anim.SetBool("hit", false);
             state = MovementState.running;
             sprite.flipX = true;
         }
         else
         {
+            anim.SetBool("hit", false);
             state = MovementState.idle;
         }
 
         if (rb.velocity.y > .1f)
         {
+            anim.SetBool("hit", false);
             state = MovementState.jumping;
         }
         else if (rb.velocity.y < -.1f)
         {
+            anim.SetBool("hit", false);
             state = MovementState.falling;
         }
 

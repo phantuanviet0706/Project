@@ -7,6 +7,8 @@ public class PlayerLife : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
+    public GameObject[] hearts;
+    public int life = 3;
 
     //[SerializeField] private AudioSource deathSoundEffect;
 
@@ -20,7 +22,16 @@ public class PlayerLife : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Die();
+            anim.SetBool("hit", true);
+            if (life >= 1)
+            {
+                life--;
+                Destroy(hearts[life].gameObject);
+                if (life == 0)
+                {
+                    Die();
+                }
+            }
         }
     }
 
@@ -35,4 +46,6 @@ public class PlayerLife : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+   
 }

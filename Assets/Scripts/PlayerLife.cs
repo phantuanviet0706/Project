@@ -29,7 +29,7 @@ public class PlayerLife : MonoBehaviour
         //deathSoundEffect.Play();
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
-    }
+    } 
 
     private void RestartLevel()
     {

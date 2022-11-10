@@ -20,6 +20,10 @@ public class PlayerLife : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(rb.position.y < -5)
+        {
+            Die();
+        }
         if (collision.gameObject.CompareTag("Enemy"))
         {
             anim.SetBool("hit", true);
